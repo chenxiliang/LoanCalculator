@@ -1,11 +1,11 @@
-loancal: loancal.o
-	gfortran -o loancal loancal.o
+loanCalculator: loanCalculator.o
+	gfortran -o loanCalculator loanCalculator.o
 
-loancal.o: loancal.f90
-	gfortran -c loancal.f90 -o loancal.o
+loanCalculator.o: loancal.f90
+	gfortran -c loancal.f90 -o loanCalculator.o
 
 .PHONY: clean
 clean:
-	rm loancal.o
+	rm loanCalculator.o
 veryclean:
-	rm loancal.o loancal
+	rm loanCalculator.o loanCalculator
