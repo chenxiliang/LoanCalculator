@@ -28,7 +28,7 @@ do while( io==0)
 	write(*,*)
 	write(*, "(A, A, F12.2)"), "Monthly Payment:", " $", monthly_pay
 
-	! calculates the first year of payments
+	! calculates the first and last year of payments &  calculates the total interest and total payments and displays them.
 	balance=initial_balance
 	interest_rate = interest_rate/12
 	total_interest=0
@@ -49,7 +49,6 @@ do while( io==0)
 		total_interest=total_interest+interest
 		total_pay=total_pay+principal+interest
 end do
-	! calculates the total interest and total payments and displays them.
 	write(*,*)
 	write(*,"(A18, F12.2)"),"Total Interest: $", total_interest
 	write(*,"(A18, F12.2)"),"Total Payments: $", total_pay
