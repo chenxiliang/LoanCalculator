@@ -34,20 +34,25 @@ do while( io==0)
 	total_interest=0
 	total_pay=0
 	write(*,*)
-	write(*,"(A, A12, A11,A11)"), "Period", "Principal", "Interest", "Balance"
+	write(*,"(A, A12, A11, A12)"), "Period", "Principal", "Interest", "Balance"
 	do period=1,month
 		interest=balance*interest_rate
 		principal=monthly_pay-interest
 		balance=balance-principal
 		if(period>12*(year-1) .or. period<12+1)then
 			counter=counter+1;
-			write(*,"(I6,F12.2,F11.2,F11.2)"),period, principal, interest, balance
+			write(*,"(I6,F12.2,F11.2,F12.2)"),period, principal, interest, balance
 			if(counter==12) then
 				write(*,*)
 			endif
 		endif
+		total_interest=total_interest+interest
+		total_pay=total_pay+principal+interest
 end do
 	! calculates the total interest and total payments and displays them.
+	write(*,*)
+	write(*,"(A18, F12.2)"),"Total Interest: $", total_interest
+	write(*,"(A18, F12.2)"),"Total Payments: $", total_pay
 	write(*,*)
 end do
 close(1)
